@@ -42,7 +42,6 @@ It's better to modelize it this way, cause for one Delta there could be multiple
 
 ![state machine figure](./img/state_machine.png)
 
-
 ## Parameters to play on :
 * **alpha** : mining power of selfish pool
 * **1-alpha** : mining power of others
@@ -62,8 +61,10 @@ WARNING : if honest miners block on selfish miners chain in case of competitive 
 ## Results : 
 
 Setting **alhpa** , **gamma**  and  the number of simulations, this is what we can get from the simulator at the end of every simulations :
+
 ![simulator end results](./img/results.png)
-It is also possible to track progress for each simulation, as shown in [simulator step1 results](./img/) and [simulator step2 results](./img/example_steps_2.png)
+
+It is also possible to track progress for each simulation, as shown in [simulator step1 results](./img/example_steps_1.png) and [simulator step2 results](./img/example_steps_2.png)
 
 Finally, I created a table for multiple **gamma** and **alpha** combinations with a sufficiently high number of simulations (200,000), here are the plotted results that show when is Selfish Mining a profitable strategy.
 
