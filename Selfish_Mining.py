@@ -3,8 +3,9 @@ import time
 
 class Selfish_Mining:
 
-	def __init__(self, nb_simulations, alpha, gamma):
-		self.__nb_simulations = nb_simulations
+	#def __init__(self, nb_simulations, alpha, gamma):
+	def __init__(self, **d):
+		self.__nb_simulations = d['nb_simulations']
 		self.__delta = 0 # advance of selfish miners on honests'ones
 		self.__private_chain_length = 0 # length of private chain RESET at each validation
 		self.__public_chain_length = 0 # length of public chain RESET at each validation
@@ -14,9 +15,14 @@ class Selfish_Mining:
 		self.__counter = 1
 
 		# Setted Parameters
-		self.__alpha = alpha
-		self.__gamma = gamma
+		self.__alpha = d['alpha']
+		self.__gamma = d['gamma']
+		
+		self.__end_result = None
 
+	def write_file(self):
+		with open('results.txt', 'a', encoding='utf-8') as f:
+			f.write(','.join(self.__end_result) + '\n')
 
 	def Simulate(self):
 		while(self.__counter <= self.__nb_simulations):
@@ -28,7 +34,7 @@ class Selfish_Mining:
 				self.On_Selfish_Miners()
 			else:
 				self.On_Honest_Miners()
-			### UNCOMMENT BELOW THOSE 3 LINES TO GET DISPLAY OF EVOLUTION ###
+			### COPY-PASTE THE 3 LINES BELOW IN THE IF/ELSE TO GET EACH ITERATION RESULTS ###
 			#self.__revenue = self.compute_revenue()
 			#print(self)
 			#time.sleep(1)
@@ -40,6 +46,10 @@ class Selfish_Mining:
 			self.__blocked_validated_for_selfish += self.__private_chain_length
 			self.__public_chain_length, self.__private_chain_length = 0,0
 		self.__revenue = self.compute_revenue()
+		
+		result = [self.__alpha, self.__gamma, self.__nb_simulations, self.__blocked_validated_for_honests,\
+		 self.__blocked_validated_for_selfish, self.__revenue]
+		self.__end_result = [str(x) for x in result]
 		print(self)
 
 	def On_Selfish_Miners(self):
@@ -94,6 +104,23 @@ class Selfish_Mining:
 			'current revenue ratio \n\t Rpool = rpool / (rpool + rothers) : ' + str(self.__revenue) + '\n'		
 		return simulation_message + choosen_parameters + private_public_results
 
-
-new = Selfish_Mining(130000, 0.39, 0)
+dico = {'nb_simulations':200000, 'alpha':0.5, 'gamma':0.4}
+new = Selfish_Mining(**dico)
 new.Simulate()
+
+"""
+### TO SAVE MULTIPLE VALUES IN FILE ###
+start = time.time()
+alphas = list(i/100 for i in range(0, 50, 1)) #50 => 0, 0.5, 0.01
+gammas = list(i/100 for i in range(0, 100, 1)) #100 => 0, 1, 0.01
+count = 0 #pourcentage done
+for alpha in alphas:
+	for gamma in gammas:
+		new = Selfish_Mining(**{'nb_simulations':200000, 'alpha':alpha, 'gamma':gamma})
+		new.Simulate() # took 113 seconds | 155 Ko
+		new.write_file()
+	count += 1/len(alphas)
+	print("progress :" + str(round(count,2)*100) + "%\n")
+duration = time.time()-start
+print("Tooks " + str(round(duration,2)) + " seconds")
+"""
