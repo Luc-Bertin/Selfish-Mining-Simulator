@@ -68,6 +68,4 @@ It is also possible to track progress for each simulation, as shown in [simulato
 
 Finally, I created a table for multiple **gamma** and **alpha** combinations with a sufficiently high number of simulations (200,000), here are the plotted results that show when is Selfish Mining a profitable strategy.
 
-----
-
 ![selfish mining graph](./img/selfish_mining_result.png)
