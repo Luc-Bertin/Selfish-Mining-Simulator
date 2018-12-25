@@ -62,9 +62,9 @@ WARNING : if honest miners block on selfish miners chain in case of competitive 
 ## Results : 
 
 Setting **alhpa** , **gamma**  and  the number of simulations, this is what we can get from the simulator at the end of every simulations :
-![simulator end results](./img/results)
+![simulator end results](./img/results.png)
 It is also possible to track progress for each simulation, as shown below :
-![simulator step1 results](./img/example_steps_1)
-![simulator step2 results](./img/example_steps_2)
+![simulator step1 results](./img/example_steps_1.png)
+![simulator step2 results](./img/example_steps_2.png)
 
 We created a table for multiple **gamma** and **alpha** combinations with a sufficiently high number of simulations (200,000), here are the plotted results that show when is Selfish Mining a profitable strategy.
