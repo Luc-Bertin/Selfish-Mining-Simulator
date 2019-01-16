@@ -1,5 +1,6 @@
 # Algorithm : Selfish Mining 
-### Based on the paper: *'Majority is not Enough'*
+### Based on the paper: *Majority is not Enough* [link](https://www.cs.cornell.edu/~ie53/publications/btcProcFC.pdf)
+### and [*On profitability of Selfish Mining*](https://webusers.imj-prg.fr/~ricardo.perez-marco/publications/articles/OnSelfishMining20.pdf)
 
 ## Brief Introduction :
 
