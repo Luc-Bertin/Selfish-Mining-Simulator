@@ -106,6 +106,7 @@ class Selfish_Mining:
 		selfish_vs_honests_stats = \
 			'Blocks validated by honest miners : ' + str(self.__honestsValidBlocks) + '\n'\
 			'Blocks validated by selfish miners : ' + str(self.__selfishValidBlocks) + '\n'\
+            'Expected if they were honests : ' + str(int(self.__alpha * self.__nb_simulations)) + '\n'\
 			'Number of total blocks mined : ' + str(self.__totalMinedBlocks) + '\n'\
 			'Number of Orphan blocks : ' + str(self.__orphanBlocks) + '\n'\
 			'Revenue ratio = PoolBlocks / TotalBlocks : ' + str(self.__revenue) + '%\n'
