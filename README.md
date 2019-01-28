@@ -127,7 +127,7 @@ The rest of the code inside this loop is quite self-explanatory:
 
 This is an example of difficulty readjustment over 2016/4032/etc… validated blocks, expressed in pourcentage. 
 
-![Changediffgamma05](./img/Changediffgamma05.png)
+![Changediffgamma07](./img/Changediffgamma07.png)
 
 
 Logically, when α=0, as all blocks are validated by honest miners at a rate of 1-per-10 minutes, then no adjustement are needed and difficulty stays at 20160/20160 =1 = 100% of initial difficulty value. As α increases, so time for 2016 validation does, this pourcentage is lowered. But after 1st readjustment, we got back to the actual 1-per-10 minutes rate, even with generated orphan blocks, for the next iterations.
